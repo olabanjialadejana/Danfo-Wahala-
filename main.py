@@ -17,8 +17,8 @@ while bus_engine_running:
         money_collection.report()
     else:
         location = destination.find_destination(choice)
-        if vanagon_bus.is_resource_sufficient(location):
-            if money_collection.make_payment(location.transport_fare):
-                vanagon_bus.go_to_destination(location)
+        if vanagon_bus.is_resource_sufficient(location) \
+                and money_collection.make_payment(location.transport_fare):
+            vanagon_bus.go_to_destination(location)
 
 
