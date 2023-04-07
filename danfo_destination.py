@@ -15,12 +15,18 @@ class Destination:
     corresponding requirements for the Vanagon bus to get there"""
     def __init__(self):
         self.destination = [
-            DanfoDestination(destination_name="okokomaiko", engine_oil=10, radiator_water=10, petrol=25),
-            DanfoDestination(destination_name="ikorodu", engine_oil=5, radiator_water=7, petrol=15),
-            DanfoDestination(destination_name="lekki", engine_oil=12, radiator_water=15, petrol=35),
-            DanfoDestination(destination_name="ayobo", engine_oil=13, radiator_water=17, petrol=40),
-            DanfoDestination(destination_name="gbagada", engine_oil=5, radiator_water=4, petrol=10),
-            DanfoDestination(destination_name="agege", engine_oil=8, radiator_water=8, petrol=17),
+            DanfoDestination(destination_name="okokomaiko", engine_oil=10,
+                             radiator_water=10, petrol=25, transport_fare=800),
+            DanfoDestination(destination_name="ikorodu", engine_oil=5,
+                             radiator_water=7, petrol=15, transport_fare=300),
+            DanfoDestination(destination_name="lekki", engine_oil=12,
+                             radiator_water=15, petrol=35, transport_fare=1000),
+            DanfoDestination(destination_name="ayobo", engine_oil=13,
+                             radiator_water=17, petrol=40, transport_fare=1200),
+            DanfoDestination(destination_name="gbagada", engine_oil=5,
+                             radiator_water=4, petrol=10, transport_fare=250),
+            DanfoDestination(destination_name="agege", engine_oil=8,
+                             radiator_water=8, petrol=17, transport_fare= 350),
 
         ]
 
@@ -37,4 +43,4 @@ class Destination:
         for destination in self.destination:
             if destination.destination_name == passenger_destination:
                 return destination
-        print(f"Sorry, I no dey go {passenger_destination}. Alaye ma wole oo 😡😡😡")
+        print(f"Oga, I no dey go {passenger_destination}. Alaye ma wole oo 😡😡😡")

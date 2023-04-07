@@ -25,7 +25,7 @@ class MoneyCollection:
         """This method returns the bus fare collected from a passenger"""
         print("Owo mi da? 😠")
         for note in self.NOTE_VALUES:
-            self.money_received += int(input(f"How many {note}:")) * self.NOTE_VALUES[note]
+            self.money_received += int(input(f"How many {note} u dey drop:")) * self.NOTE_VALUES[note]
         return self.money_received
 
     def make_payment(self, transport_fare):
@@ -33,7 +33,7 @@ class MoneyCollection:
         self.process_cash()
         if self.money_received >= transport_fare:
             change = round(self.money_received - transport_fare, 2)
-            print(f"Here is {self.CURRENCY}{change} in change.")
+            print(f"Gba change {self.CURRENCY}{change} e.")
             self.profit += transport_fare
             self.money_received = 0
             return True

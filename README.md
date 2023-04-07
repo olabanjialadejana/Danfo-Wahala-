@@ -14,11 +14,19 @@ I moved through these key steps:
     1. All attributes and methods of the MoneyCollection class (representing the 
    job description of a typical conductor) 
     ![img_2.png](img_2.png)
+   * faiba = ₦10
+   * muri = ₦20
+   * wazo = ₦50
+   * 10 faiba = ₦100
+   * 20 faiba = ₦200
+   * figo = ₦500
+   * one thousand = ₦1000
+   
     2. All attributes and methods of the DanfoDestination class 
    (this models all the predetermined destinations of the driver/conductor)
     3. All attributes of the Volkswagen Vanagon bus 
    (petrol, engine_oil, and water for radiator)
-
+    
 2. The code proper
 
 ## Files
