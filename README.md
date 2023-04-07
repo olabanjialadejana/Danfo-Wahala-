@@ -12,7 +12,8 @@ I moved through these key steps:
 1. Created several classes to handle key tasks done throughout the transportation process:
     
     1. All attributes and methods of the MoneyCollection class (representing the 
-   job description of a typical conductor) ![img_1.png](img_1.png)
+   job description of a typical conductor) 
+    ![img_2.png](img_2.png)
     2. All attributes and methods of the DanfoDestination class 
    (this models all the predetermined destinations of the driver/conductor)
     3. All attributes of the Volkswagen Vanagon bus 
