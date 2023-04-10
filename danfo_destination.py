@@ -1,5 +1,5 @@
 class DanfoDestination:
-    """This class models each destination"""
+    """This class models each destinations"""
     def __init__(self, destination_name, petrol, engine_oil, radiator_water, transport_fare):
         self.destination_name = destination_name
         self.transport_fare = transport_fare
@@ -39,7 +39,7 @@ class Destination:
 
     def find_destination(self, passenger_destination):
         """This method searches the list of destinations by name.
-        It returns a destination if it exists or returns None if otherwise"""
+        It returns a destinations if it exists or returns None if otherwise"""
         for destination in self.destination:
             if destination.destination_name == passenger_destination:
                 return destination

@@ -23,7 +23,7 @@ they utilize the Danfo buses to achieve their respective objectives (KPIs) in te
 
 Bus conductors strictly deal in cash, using Naira denominations that have street names:
  * faiba = ₦10
- * muri = ₦20
+ * muri/shandi = ₦20
  * wazo = ₦50
  * figo = ₦500
  * one thousand = ₦1000

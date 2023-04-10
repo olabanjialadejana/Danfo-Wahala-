@@ -15,7 +15,7 @@ class VanagonBus:
         print(f"radiator water: {self.bus_requirements['radiator_water']}l")
 
     def is_resource_sufficient(self, destination):
-        """This method returns True when the bus can get to a destination,
+        """This method returns True when the bus can get to a destinations,
         and False when there are insufficient resources"""
         can_go = True
         for item in destination.bus_requirements:
@@ -26,7 +26,7 @@ class VanagonBus:
 
     def go_to_destination(self, customer_destination):
         """This method subtracts the resources required
-        to move the bus to customer destination from the resources available"""
+        to move the bus to customer destinations from the resources available"""
         for item in customer_destination.bus_requirements:
             self.bus_requirements[item] -= customer_destination.bus_requirements[item]
         print(f"O wa oooooo. "
