@@ -1,24 +1,50 @@
+import random
+import route_model
 from conductor import Conductor
-from danfo_destination import Destination
 from vanagon_bus import VanagonBus
+from routes import routes_data
+from route_model import RouteModel
 
-money_collection = Conductor()
-destinations = Destination()
+conductor = Conductor()
 vanagon_bus = VanagonBus()
 bus_engine_running = True
 
+routes_database = []
+for route in routes_data:
+    route_name = route["route_name"]
+    bus_stops = route["bus-stops"]
+    route_list = RouteModel(route_name, bus_stops)
+    routes_database.append(route_list)
+
+# current_route = random.choice(routes_database)
+# print(current_route.route_name)
+# print(current_route.bus_stops)
+
+
 while bus_engine_running:
-    destination_choices = destinations.show_destinations()
-    choice = input(f"Where you dey go? ({destination_choices}): ")
+    current_route = random.choice(routes_database)
+    print(f"Bus Route is {current_route.route_name}\n"
+          f"Available bus stops are: {current_route.bus_stops}")
+    choice = input("Where you dey go?: ")
     if choice == "off":
         bus_engine_running = False
     elif choice == "report":
         vanagon_bus.report()
-        money_collection.report_profit()
+        conductor.report_profit()
     else:
-        location = destinations.find_destination(choice)
-        if vanagon_bus.is_resource_sufficient(location) \
-                and money_collection.payment_status(location.transport_fare):
-            vanagon_bus.go_to_destination(location)
+        if choice in current_route.bus_stops:
+            print("Oya enter!!!")
+            # customer_payment = conductor.receive_payment()
+            # print(customer_payment)
+            # print(current_route.calculate_fare(bus_stops=choice))
+            if conductor.payment_status(current_route.calculate_fare(bus_stops=choice)):
+                vanagon_bus.move_to_destination(current_route.calculate_fare(bus_stops=choice))
 
+            # if conductor.payment_status(RouteModel.calculate_fare(choice)):
+            #     vanagon_bus.go_to_destination(choice)
+        else:
+            print("Sorry, Mi o Lo!!!")
 
+        # if vanagon_bus.is_resource_sufficient(location) \
+        #         and conductor.payment_status(location.transport_fare):
+        #     vanagon_bus.go_to_destination(location)

@@ -8,6 +8,7 @@ class Conductor:
         "figo ('₦500')": 500,
         "one thousand ('₦1000')": 1000,
     }
+#TODO Conductors know all the bus stops within a route. Model that here
 
     def __init__(self):
         """Attributes of conductor"""
@@ -28,7 +29,7 @@ class Conductor:
         return self.customer_payment
 
     def payment_status(self, transport_fare):
-        """This method returns True when payment os accepted,
+        """This method returns True when payment is accepted,
         or False if insufficient"""
         self.receive_payment()
         if self.customer_payment >= transport_fare:
