@@ -1,11 +1,12 @@
 import route_model
 
+
 class VanagonBus:
     """This class models the engine and
     working requirements of the Volkswagen Vanagon bus"""
     def __init__(self):
         self.bus_requirements = {
-            "petrol": 350,
+            "petrol": 500,
             "engine_oil": 70,
             "radiator_water": 100,
         }
@@ -16,27 +17,17 @@ class VanagonBus:
         print(f"engine oil: {self.bus_requirements['engine_oil']}l")
         print(f"radiator water: {self.bus_requirements['radiator_water']}l")
 
-    # def is_resource_sufficient(self, destination):
-    #     """This method returns True when the bus can get to a destinations,
-    #     and False when there are insufficient resources"""
-    #     can_go = True
-    #     for item in route_model.vanagon_consumption()
-    #     for item in destination.bus_requirements:
-    #         if destination.bus_requirements[item] > self.bus_requirements[item]:
-    #             print(f"Oga koshi bole, mi o ni {item} lati de ibe yen.")
-    #             can_go = False
-    #     return can_go
-
     def move_to_destination(self, transport_fare):
+        """This method deducts the vanagon bus requirements (petrol, engine oil,
+        and radiator water as each trip is completed"""
+        consumption = route_model.vanagon_consumption(transport_fare)
         for item in self.bus_requirements:
-            self.bus_requirements[item] -= route_model.vanagon_consumption(transport_fare)[item]
+            if consumption[item] > self.bus_requirements[item]:
+                print(f"Insufficient {item} to go there.")
+                return False
+            else:
+                self.bus_requirements[item] -= consumption[item]
+                print("O wa oooooo. Oya bole, O loyun, O ponmo ooo. Aunty e smart up jare!!!!😠😠😠😠 ")
 
-    # def go_to_destination(self, customer_destination):
-    #     """This method subtracts the resources required
-    #     to move the bus to customer destinations from the resources available"""
-    #     for item in customer_destination.bus_requirements:
-    #         self.bus_requirements[item] -= customer_destination.bus_requirements[item]
-    #     print(f"O wa oooooo. "
-    #           f"Oya bole, O loyun, O ponmo ooo. Aunty e smart up jare!!!!😠😠😠😠 ")
-    #
-    # # def bus_route(self, route):
+
+

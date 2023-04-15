@@ -37,14 +37,10 @@ while bus_engine_running:
             # customer_payment = conductor.receive_payment()
             # print(customer_payment)
             # print(current_route.calculate_fare(bus_stops=choice))
-            if conductor.payment_status(current_route.calculate_fare(bus_stops=choice)):
-                vanagon_bus.move_to_destination(current_route.calculate_fare(bus_stops=choice))
+            if conductor.payment_status(current_route.calculate_fare(choice)):
+                vanagon_bus.move_to_destination(current_route.calculate_fare(choice))
 
-            # if conductor.payment_status(RouteModel.calculate_fare(choice)):
-            #     vanagon_bus.go_to_destination(choice)
+
         else:
             print("Sorry, Mi o Lo!!!")
 
-        # if vanagon_bus.is_resource_sufficient(location) \
-        #         and conductor.payment_status(location.transport_fare):
-        #     vanagon_bus.go_to_destination(location)

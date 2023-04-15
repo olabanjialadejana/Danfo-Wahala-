@@ -3,7 +3,7 @@ def vanagon_consumption(transport_fare):
     engine_oil_volume = 0.002
     radiator_water_volume = 0.003
 
-    # Calculate consumption based on transport fare
+    # This method calculates consumption based on transport fare
     petrol_consumption = transport_fare * petrol_volume
     engine_oil_consumption = transport_fare * engine_oil_volume
     radiator_water_consumption = transport_fare * radiator_water_volume
