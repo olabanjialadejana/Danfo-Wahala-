@@ -1,5 +1,4 @@
 import random
-import route_model
 from conductor import Conductor
 from vanagon_bus import VanagonBus
 from routes import routes_data
@@ -10,22 +9,15 @@ vanagon_bus = VanagonBus()
 bus_engine_running = True
 
 routes_database = []
-for route in routes_data:
-    route_name = route["route_name"]
-    bus_stops = route["bus-stops"]
+for route_name, bus_stops in routes_data.items():
     route_list = RouteModel(route_name, bus_stops)
     routes_database.append(route_list)
 
-# current_route = random.choice(routes_database)
-# print(current_route.route_name)
-# print(current_route.bus_stops)
-
-
-while bus_engine_running:
+while True:
     current_route = random.choice(routes_database)
     print(f"Bus Route is {current_route.route_name}\n"
           f"Available bus stops are: {current_route.bus_stops}")
-    choice = input("Where you dey go?: ")
+    choice = input("Where are you going?: ")
     if choice == "off":
         bus_engine_running = False
     elif choice == "report":
@@ -33,14 +25,25 @@ while bus_engine_running:
         conductor.report_profit()
     else:
         if choice in current_route.bus_stops:
-            print("Oya enter!!!")
-            # customer_payment = conductor.receive_payment()
-            # print(customer_payment)
-            # print(current_route.calculate_fare(bus_stops=choice))
-            if conductor.payment_status(current_route.calculate_fare(choice)):
-                vanagon_bus.move_to_destination(current_route.calculate_fare(choice))
-
-
+            fare = current_route.calculate_fare(choice)
+            for item in vanagon_bus.bus_requirements:
+                if vanagon_bus.bus_requirements[item] > current_route.trip_consumption(fare)[item]:
+                    print("Oya enter!!!")
+                    conductor.payment_status(fare)
+                    vanagon_bus.bus_requirements[item] -= current_route.trip_consumption(fare)[item]
+                    break
         else:
-            print("Sorry, Mi o Lo!!!")
+            print("Sorry, I no dey go")
+
+
+
+    if not bus_engine_running:
+        break
+
+
+
+
+
+
+
 

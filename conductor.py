@@ -45,3 +45,10 @@ class Conductor:
                   " Hope you are not injured sha?")
             self.customer_payment = 0
             return False
+
+
+# Test the class and ensure its working
+
+# kunle = Conductor()
+# kunle.payment_status(2000)
+# print(kunle.report_profit())
