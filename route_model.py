@@ -29,20 +29,6 @@ class RouteModel:
             "radiator_water": radiator_water_consumption,
         }
 
-# Code to test if the class is working perfectly without errors
-
-
-# route_list = []
-# for route_name, bus_stops in routes_data.items():
-#     mazda = RouteModel(route_name, bus_stops)
-#     route_list.append(mazda)
-#
-# a_route = random.choice(route_list)
-# print(a_route.bus_stops)
-# print(a_route.bus_stops.index("Shoprite"))
-#
-# transport_money = a_route.calculate_fare("Yaba")
-# print(a_route.vanagon_consumption(transport_money))
 
 
 
